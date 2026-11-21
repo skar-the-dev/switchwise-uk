@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en-GB"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Compare the total cost of UK mobile phone and SIM contracts. Include monthly fees, upfront handset payments and one-off charges in this free calculator.">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://skar-the-dev.github.io/switchwise-uk/mobile-contract-calculator.html">
+<meta property="og:type" content="article"><meta property="og:title" content="Free Mobile Contract Cost Calculator | SwitchWise UK"><meta property="og:description" content="Estimate the full cost of a mobile plan over its minimum contract term.">
+<title>Mobile Contract Cost Calculator — Free UK Tool | SwitchWise</title>
+<link rel="stylesheet" href="assets/styles.css"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head><body>
+<header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">S</span><span>SwitchWise <small>UK</small></span></a><nav aria-label="Main navigation"><a href="index.html#calculators">Calculators</a><a href="index.html#guides">Guides</a><a href="index.html#about">About</a></nav></header>
+<main class="guide-page"><article class="guide-content">
+<a class="guide-toplink" href="index.html">← SwitchWise UK home</a><span class="eyebrow">FREE UK MOBILE TOOL</span>
+<h1>Compare the total cost of a mobile contract.</h1>
+<p class="lead">A low monthly price can hide a large upfront handset payment or other one-off charges. Use your own offer details to estimate what you would pay across the minimum contract term.</p>
+<section class="guide-calculator" aria-labelledby="calc-title">
+<h2 id="calc-title">Mobile contract calculator</h2>
+<form id="mobile-page-form" class="calc-form">
+<label>Monthly price (£)<input id="m-monthly" type="number" min="0" step="0.01" inputmode="decimal" placeholder="e.g. 20" required></label>
+<label>Contract length (months)<input id="m-term" type="number" min="1" step="1" inputmode="numeric" placeholder="e.g. 24" required></label>
+<label>Upfront handset cost (£)<input id="m-upfront" type="number" min="0" step="0.01" inputmode="decimal" value="0" required></label>
+<label>Other one-off fees (£)<input id="m-fees" type="number" min="0" step="0.01" inputmode="decimal" value="0" required></label>
+<button class="button primary" type="submit">Calculate total mobile cost</button>
+</form>
+<div id="mobile-page-result" class="guide-result" aria-live="polite">Your mobile contract estimate will appear here.</div>
+</section>
+<h2>SIM-only or a handset plan?</h2>
+<p>A SIM-only deal and a phone contract are not always directly comparable. A handset plan may include a substantial upfront payment, a longer minimum term or separate airtime and device agreements. Compare the total amount you expect to pay over the same period.</p>
+<h2>Check the small print</h2>
+<ul><li>Confirm the minimum term and whether the airtime and handset agreements have different end dates.</li><li>Check whether the monthly price can change during the contract.</li><li>Look at data allowances, roaming, speed limits and charges for going over your allowance.</li><li>Include upfront fees, delivery charges and any optional add-ons you actually need.</li><li>Check what happens at the end of the minimum term and whether the plan continues at the same price.</li></ul>
+<h2>How the estimate works</h2>
+<p>The calculator multiplies the monthly price by the contract length, then adds the handset payment and any one-off fees you enter. It divides the total by the number of months to show an average monthly cost. It does not include unentered add-ons or future price changes.</p>
+<div class="source-note">For independent information about mobile coverage, switching and consumer rights, see <a href="https://www.ofcom.org.uk/phones-and-broadband/" target="_blank" rel="noopener noreferrer">Ofcom's phones and broadband guidance</a>. Always confirm offer details with the network.</div>
+<a class="button secondary" href="index.html#calculators">See all free calculators</a>
+</article></main>
+<footer><a class="brand" href="index.html"><span class="brand-mark">S</span><span>SwitchWise <small>UK</small></span></a><p><a href="privacy.html">Privacy</a> · <a href="disclosure.html">Affiliate disclosure</a></p><p class="fine">Estimates only. Confirm contract terms and coverage with the provider.</p></footer>
+<script>
+(() => {
+const form=document.getElementById("mobile-page-form");
+const gbp=n=>new Intl.NumberFormat("en-GB",{style:"currency",currency:"GBP"}).format(n);
+form.addEventListener("submit",e=>{
+e.preventDefault();if(!form.reportValidity())return;
+const ids=["m-monthly","m-term","m-upfront","m-fees"];
+const v=ids.map(id=>Number(document.getElementById(id).value));
+if(v.some(n=>!Number.isFinite(n)||n<0)||v[1]<1)return;
+const total=v[0]*v[1]+v[2]+v[3];
+const out=document.getElementById("mobile-page-result");out.replaceChildren();
+const strong=document.createElement("strong");strong.textContent=gbp(total)+" estimated total";
+const detail=document.createElement("span");detail.textContent="Average: "+gbp(total/v[1])+" per month across "+v[1]+" months, including upfront and one-off fees entered. Check any future price changes.";
+out.append(strong,detail);
+});
+})();
+</script></body></html>
