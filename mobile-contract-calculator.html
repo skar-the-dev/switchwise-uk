@@ -14,7 +14,7 @@
 <p class="lead">A low monthly price can hide a large upfront handset payment or other one-off charges. Use your own offer details to estimate what you would pay across the minimum contract term.</p>
 <section class="guide-calculator" aria-labelledby="calc-title">
 <h2 id="calc-title">Mobile contract calculator</h2>
-<form id="mobile-page-form" class="calc-form">
+<form id="mobile-page-form" class="calc-form" novalidate>
 <label>Monthly price (£)<input id="m-monthly" type="number" min="0" step="0.01" inputmode="decimal" placeholder="e.g. 20" required></label>
 <label>Contract length (months)<input id="m-term" type="number" min="1" step="1" inputmode="numeric" placeholder="e.g. 24" required></label>
 <label>Upfront handset cost (£)<input id="m-upfront" type="number" min="0" step="0.01" inputmode="decimal" value="0" required></label>
@@ -38,7 +38,7 @@
 const form=document.getElementById("mobile-page-form");
 const gbp=n=>new Intl.NumberFormat("en-GB",{style:"currency",currency:"GBP"}).format(n);
 form.addEventListener("submit",e=>{
-e.preventDefault();if(!form.reportValidity())return;
+e.preventDefault();if(!form.reportValidity()){const out=document.getElementById("mobile-page-result");out.replaceChildren();const strong=document.createElement("strong");strong.textContent="Complete the required fields";const detail=document.createElement("span");detail.textContent="Enter a value in each field before calculating. Use 0 for any one-off cost that does not apply.";out.append(strong,detail);return;}
 const ids=["m-monthly","m-term","m-upfront","m-fees"];
 const v=ids.map(id=>Number(document.getElementById(id).value));
 if(v.some(n=>!Number.isFinite(n)||n<0)||v[1]<1)return;
