@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://skar-the-dev.github.io/switchwise-uk/sitemap.xml
