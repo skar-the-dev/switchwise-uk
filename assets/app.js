@@ -14,9 +14,13 @@
   };
   const bind = (id, handler) => {
     const form = document.getElementById(id);
+    const resultIds = {"savings-form":"savings-result","energy-form":"energy-result","broadband-form":"broadband-result","mobile-form":"mobile-result","goal-form":"goal-result"};
     if (form) form.addEventListener("submit", event => {
       event.preventDefault();
-      if (!form.reportValidity()) return;
+      if (!form.reportValidity()) {
+        show(resultIds[id], "Complete the required fields", "Enter a value in each field before calculating. Use 0 for any cost or fuel that does not apply.");
+        return;
+      }
       handler();
     });
   };
