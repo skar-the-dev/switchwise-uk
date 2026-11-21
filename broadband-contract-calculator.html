@@ -14,7 +14,7 @@
 <p class="lead">A monthly headline price does not always tell you what a contract will cost overall. Add the monthly fee, contract length, setup charges and any bill credits to estimate the full amount.</p>
 <section class="guide-calculator" aria-labelledby="calc-title">
 <h2 id="calc-title">Broadband contract calculator</h2>
-<form id="bb-page-form" class="calc-form">
+<form id="bb-page-form" class="calc-form" novalidate>
 <label>Monthly price (£)<input id="bb-monthly" type="number" min="0" step="0.01" inputmode="decimal" placeholder="e.g. 29.99" required></label>
 <label>Contract length (months)<input id="bb-term" type="number" min="1" step="1" inputmode="numeric" placeholder="e.g. 18" required></label>
 <label>Setup and activation fees (£)<input id="bb-fee" type="number" min="0" step="0.01" inputmode="decimal" value="0" required></label>
@@ -36,7 +36,7 @@
 const form=document.getElementById("bb-page-form");
 const gbp=n=>new Intl.NumberFormat("en-GB",{style:"currency",currency:"GBP"}).format(n);
 form.addEventListener("submit",e=>{
-e.preventDefault();if(!form.reportValidity())return;
+e.preventDefault();if(!form.reportValidity()){const out=document.getElementById("bb-page-result");out.replaceChildren();const strong=document.createElement("strong");strong.textContent="Complete the required fields";const detail=document.createElement("span");detail.textContent="Enter a value in each field before calculating. Use 0 for charges or credits that do not apply.";out.append(strong,detail);return;}
 const ids=["bb-monthly","bb-term","bb-fee","bb-rebate"];
 const v=ids.map(id=>Number(document.getElementById(id).value));
 if(v.some(n=>!Number.isFinite(n)||n<0)||v[1]<1)return;
