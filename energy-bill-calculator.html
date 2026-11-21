@@ -14,7 +14,7 @@
 <p class="lead">Use the electricity and gas usage, unit rates and daily standing charges shown on your own bill. This calculator turns those figures into an illustrative yearly cost — it does not look up live tariffs.</p>
 <section class="guide-calculator" aria-labelledby="calc-title">
 <h2 id="calc-title">Annual energy cost calculator</h2>
-<form id="energy-page-form" class="calc-form">
+<form id="energy-page-form" class="calc-form" novalidate>
 <label>Electricity use per year (kWh)<input id="e-kwh" type="number" min="0" step="1" inputmode="decimal" placeholder="e.g. 2700" required></label>
 <label>Electricity unit rate (p/kWh)<input id="e-rate" type="number" min="0" step="0.01" inputmode="decimal" placeholder="From your bill" required></label>
 <label>Electricity standing charge (£/day)<input id="e-standing" type="number" min="0" step="0.0001" inputmode="decimal" placeholder="From your bill" required></label>
@@ -42,7 +42,7 @@
 const form=document.getElementById("energy-page-form");
 const gbp=n=>new Intl.NumberFormat("en-GB",{style:"currency",currency:"GBP"}).format(n);
 form.addEventListener("submit",e=>{
-e.preventDefault();if(!form.reportValidity())return;
+e.preventDefault();if(!form.reportValidity()){const out=document.getElementById("energy-page-result");out.replaceChildren();const strong=document.createElement("strong");strong.textContent="Complete the required fields";const detail=document.createElement("span");detail.textContent="Enter all six figures. For a fuel you do not use, enter 0 in its usage, rate and standing charge fields.";out.append(strong,detail);return;}
 const ids=["e-kwh","e-rate","e-standing","g-kwh","g-rate","g-standing"];
 const v=ids.map(id=>Number(document.getElementById(id).value));
 if(v.some(n=>!Number.isFinite(n)||n<0))return;
