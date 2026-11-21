@@ -1,13 +1,164 @@
 <!doctype html>
-<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Free UK household bill calculators. Estimate energy, broadband and household savings."><meta name="theme-color" content="#f7f7fb"><title>SwitchWise UK — Make your bills work harder</title><link rel="stylesheet" href="assets/styles.css"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"></head>
-<body><header class="topbar"><a class="brand" href="#"><span class="brand-mark">S</span><span>SwitchWise <small>UK</small></span></a><nav><a href="#calculators">Calculators</a><a href="#how">How it works</a><a href="#about">About</a></nav></header>
-<main><section class="hero"><div><span class="eyebrow">FREE UK MONEY TOOLS</span><h1>Make your bills<br><em>work harder.</em></h1><p>Simple calculators to help you understand what you pay, compare alternatives and spot potential savings. No sign-up. No judgement. Just clearer numbers.</p><a class="button primary" href="#calculators">Explore free calculators <span>↘</span></a><div class="trust-row"><span>✓ Free to use</span><span>✓ No account needed</span><span>✓ Figures stay on this device</span></div></div><div class="hero-panel"><div class="panel-label">YOUR POTENTIAL SAVINGS</div><div class="panel-number">£<span id="hero-savings">—</span></div><p>Calculate your potential saving below.</p><div class="mini-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="panel-foot"><span>SMALL CHANGES ADD UP</span><span>SWITCHWISE UK</span></div></div></section>
-<section class="section" id="calculators"><div class="section-head"><div><span class="eyebrow">THE TOOLKIT</span><h2>Know your numbers.</h2></div><p>Choose a calculator, enter your figures and get an instant estimate.</p></div><div class="tool-grid">
-<article class="tool-card featured"><div class="tool-icon">↗</div><span class="tag">POPULAR</span><h3>Bill savings calculator</h3><p>Compare your current bill with a new quote.</p><form id="savings-form" class="calc-form"><label>Current monthly bill (£)<input id="current-bill" type="number" min="0" step=".01" placeholder="150" required></label><label>New monthly quote (£)<input id="new-bill" type="number" min="0" step=".01" placeholder="125" required></label><button class="button primary">Calculate my saving</button></form><div id="savings-result" class="result" aria-live="polite">Your result will appear here.</div></article>
-<article class="tool-card"><div class="tool-icon">⌂</div><h3>Energy cost estimator</h3><p>Estimate annual electricity and gas costs from your usage and rates.</p><form id="energy-form" class="calc-form"><label>Electricity per year (kWh)<input id="electric-kwh" type="number" min="0" placeholder="2700" required></label><label>Electricity rate (p/kWh)<input id="electric-rate" type="number" min="0" step=".01" placeholder="25" required></label><label>Gas per year (kWh)<input id="gas-kwh" type="number" min="0" placeholder="11000" required></label><label>Gas rate (p/kWh)<input id="gas-rate" type="number" min="0" step=".01" placeholder="6.5" required></label><label>Daily standing charges (£)<input id="standing" type="number" min="0" step=".01" placeholder=".90" required></label><button class="button secondary">Estimate energy cost</button></form><div id="energy-result" class="result" aria-live="polite">Enter usage and rates to estimate annual cost.</div></article>
-<article class="tool-card"><div class="tool-icon">⌁</div><h3>Broadband cost checker</h3><p>Calculate total contract cost including setup fees.</p><form id="broadband-form" class="calc-form"><label>Monthly price (£)<input id="bb-price" type="number" min="0" step=".01" placeholder="29.99" required></label><label>Contract length (months)<input id="bb-months" type="number" min="1" step="1" placeholder="18" required></label><label>Setup fee (£)<input id="bb-setup" type="number" min="0" step=".01" value="0" required></label><button class="button secondary">Calculate contract cost</button></form><div id="broadband-result" class="result" aria-live="polite">Your contract cost will appear here.</div></article>
-<article class="tool-card"><div class="tool-icon">＋</div><h3>Monthly savings goal</h3><p>Estimate how long it may take to reach your savings target.</p><form id="goal-form" class="calc-form"><label>Target amount (£)<input id="goal-target" type="number" min="1" step=".01" placeholder="1000" required></label><label>Already saved (£)<input id="goal-current" type="number" min="0" step=".01" value="0" required></label><label>Save each month (£)<input id="goal-monthly" type="number" min=".01" step=".01" placeholder="75" required></label><button class="button secondary">Calculate my timeline</button></form><div id="goal-result" class="result" aria-live="polite">Your savings timeline will appear here.</div></article></div></section>
-<section class="how-section" id="how"><span class="eyebrow">A CLEARER WAY TO COMPARE</span><h2>Three steps. Better-informed decisions.</h2><div class="steps"><div><b>01</b><h3>Enter your figures</h3><p>Use the numbers on your latest bill or quote.</p></div><div><b>02</b><h3>See the estimate</h3><p>Understand annual or contract cost in seconds.</p></div><div><b>03</b><h3>Compare carefully</h3><p>Check the provider's full terms before switching.</p></div></div></section>
-<section class="partner-section"><div><span class="eyebrow">COMPARISON PARTNERS</span><h2>Ready to compare?</h2><p>Partner links will appear here once SwitchWise is accepted by relevant comparison and affiliate programmes. We won't show unverified offers or pretend a link is a live quote.</p></div><div class="partner-note"><span class="partner-dot"></span><div><strong>Partner area not active yet</strong><small>Affiliate applications and tracking links need to be added before this section can earn commissions.</small></div></div></section>
-<section class="about-section" id="about"><span class="eyebrow">ABOUT SWITCHWISE</span><h2>Useful tools, without the noise.</h2><p>SwitchWise UK is an independent educational toolkit. Estimates are illustrative and depend on the figures you enter. We are not a utility provider, financial adviser or price comparison service. Always verify prices, eligibility, contract terms and current rates directly with providers.</p></section></main>
-<footer><a class="brand" href="#"><span class="brand-mark">S</span><span>SwitchWise <small>UK</small></span></a><p>© <span id="year"></span> SwitchWise UK · <a href="privacy.html">Privacy</a> · <a href="disclosure.html">Affiliate disclosure</a></p><p class="fine">Calculations are estimates, not quotes or financial advice.</p></footer><script src="assets/app.js"></script></body></html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Use free UK bill calculators to estimate energy costs, compare broadband and mobile contracts, and work out potential household savings. No sign-up.">
+  <meta name="theme-color" content="#f7f7fb">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://skar-the-dev.github.io/switchwise-uk/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SwitchWise UK">
+  <meta property="og:title" content="SwitchWise UK — Free household bill calculators">
+  <meta property="og:description" content="Estimate energy costs, compare broadband and mobile contracts, and understand potential savings with free UK household bill tools.">
+  <meta property="og:url" content="https://skar-the-dev.github.io/switchwise-uk/">
+  <meta name="twitter:card" content="summary">
+  <title>Free UK Bill Calculators — Energy, Broadband & Mobile | SwitchWise UK</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"SwitchWise UK",
+    "url":"https://skar-the-dev.github.io/switchwise-uk/",
+    "description":"Free UK household bill calculators and practical comparison guides."
+  }
+  </script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="SwitchWise UK home"><span class="brand-mark">S</span><span>SwitchWise <small>UK</small></span></a>
+  <nav aria-label="Main navigation">
+    <a href="#calculators">Calculators</a>
+    <a href="#guides">Guides</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow">FREE UK HOUSEHOLD MONEY TOOLS</span>
+      <h1>Know what your bills<br><em>really cost.</em></h1>
+      <p>Clear, practical calculators to help you understand household costs, compare contract options and plan your savings. No account, no sign-up and no confusing jargon.</p>
+      <a class="button primary" href="#calculators">Explore free calculators <span aria-hidden="true">↘</span></a>
+      <div class="trust-row"><span>✓ Free to use</span><span>✓ No account needed</span><span>✓ Figures stay in your browser</span></div>
+    </div>
+    <div class="hero-panel">
+      <div class="panel-label">YOUR POTENTIAL SAVINGS</div>
+      <div class="panel-number">£<span id="hero-savings">—</span></div>
+      <p>Enter your current bill and a new quote in the savings calculator to see the difference.</p>
+      <div class="mini-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="panel-foot"><span>YOUR FIGURES, YOUR DECISION</span><span>SWITCHWISE UK</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="calculators">
+    <div class="section-head"><div><span class="eyebrow">THE TOOLKIT</span><h2>Make the numbers make sense.</h2></div><p>Use your own bill, quote or contract figures. Results are estimates, not live market prices.</p></div>
+    <div class="tool-grid">
+      <article class="tool-card featured">
+        <div class="tool-icon" aria-hidden="true">↗</div><span class="tag">START HERE</span>
+        <h3>Bill savings calculator</h3><p>Compare a current monthly cost with a new quote to see the difference over a year.</p>
+        <form id="savings-form" class="calc-form">
+          <label>Current monthly bill (£)<input id="current-bill" type="number" min="0" step="0.01" inputmode="decimal" placeholder="150" required></label>
+          <label>New monthly quote (£)<input id="new-bill" type="number" min="0" step="0.01" inputmode="decimal" placeholder="125" required></label>
+          <button class="button primary" type="submit">Calculate my saving</button>
+        </form>
+        <div id="savings-result" class="result" aria-live="polite">Your result will appear here.</div>
+      </article>
+
+      <article class="tool-card">
+        <div class="tool-icon" aria-hidden="true">⌂</div><h3>Energy cost estimator</h3><p>Estimate yearly electricity and gas costs using your usage, unit rates and both standing charges.</p>
+        <form id="energy-form" class="calc-form">
+          <label>Electricity use per year (kWh)<input id="electric-kwh" type="number" min="0" step="1" inputmode="decimal" placeholder="2700" required></label>
+          <label>Electricity rate (p/kWh)<input id="electric-rate" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Enter your rate" required></label>
+          <label>Electricity standing charge (£/day)<input id="electric-standing" type="number" min="0" step="0.0001" inputmode="decimal" placeholder="Enter daily charge" required></label>
+          <label>Gas use per year (kWh)<input id="gas-kwh" type="number" min="0" step="1" inputmode="decimal" placeholder="11000" required></label>
+          <label>Gas rate (p/kWh)<input id="gas-rate" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Enter your rate" required></label>
+          <label>Gas standing charge (£/day)<input id="gas-standing" type="number" min="0" step="0.0001" inputmode="decimal" placeholder="Enter daily charge" required></label>
+          <button class="button secondary" type="submit">Estimate energy cost</button>
+        </form>
+        <div id="energy-result" class="result" aria-live="polite">Use the rates and standing charges shown on your bill.</div>
+        <a class="text-link" href="energy-bill-calculator.html">Energy cost guide and calculator ↗</a>
+      </article>
+
+      <article class="tool-card">
+        <div class="tool-icon" aria-hidden="true">⌁</div><h3>Broadband contract checker</h3><p>Work out the full cost of a broadband deal, including setup fees and credits.</p>
+        <form id="broadband-form" class="calc-form">
+          <label>Monthly price (£)<input id="bb-price" type="number" min="0" step="0.01" inputmode="decimal" placeholder="29.99" required></label>
+          <label>Contract length (months)<input id="bb-months" type="number" min="1" step="1" inputmode="numeric" placeholder="18" required></label>
+          <label>Setup and activation fees (£)<input id="bb-setup" type="number" min="0" step="0.01" inputmode="decimal" value="0" required></label>
+          <label>Total bill credits (£)<input id="bb-credit" type="number" min="0" step="0.01" inputmode="decimal" value="0" required></label>
+          <button class="button secondary" type="submit">Calculate contract cost</button>
+        </form>
+        <div id="broadband-result" class="result" aria-live="polite">Your full contract cost will appear here.</div>
+        <a class="text-link" href="broadband-contract-calculator.html">Broadband cost guide and calculator ↗</a>
+      </article>
+
+      <article class="tool-card">
+        <div class="tool-icon" aria-hidden="true">▣</div><h3>Mobile contract checker</h3><p>Compare the total cost of a SIM or handset plan across the full contract.</p>
+        <form id="mobile-form" class="calc-form">
+          <label>Monthly price (£)<input id="mobile-price" type="number" min="0" step="0.01" inputmode="decimal" placeholder="20" required></label>
+          <label>Contract length (months)<input id="mobile-months" type="number" min="1" step="1" inputmode="numeric" placeholder="24" required></label>
+          <label>Upfront handset cost (£)<input id="mobile-upfront" type="number" min="0" step="0.01" inputmode="decimal" value="0" required></label>
+          <label>Other one-off fees (£)<input id="mobile-fees" type="number" min="0" step="0.01" inputmode="decimal" value="0" required></label>
+          <button class="button secondary" type="submit">Calculate mobile cost</button>
+        </form>
+        <div id="mobile-result" class="result" aria-live="polite">Your full contract cost will appear here.</div>
+        <a class="text-link" href="mobile-contract-calculator.html">Mobile contract guide and calculator ↗</a>
+      </article>
+
+      <article class="tool-card">
+        <div class="tool-icon" aria-hidden="true">＋</div><h3>Monthly savings goal</h3><p>Estimate how long it could take to reach a savings target at your chosen monthly amount.</p>
+        <form id="goal-form" class="calc-form">
+          <label>Target amount (£)<input id="goal-target" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="1000" required></label>
+          <label>Already saved (£)<input id="goal-current" type="number" min="0" step="0.01" inputmode="decimal" value="0" required></label>
+          <label>Save each month (£)<input id="goal-monthly" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="75" required></label>
+          <button class="button secondary" type="submit">Calculate my timeline</button>
+        </form>
+        <div id="goal-result" class="result" aria-live="polite">Your savings timeline will appear here.</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="guide-section section" id="guides">
+    <div class="section-head"><div><span class="eyebrow">PRACTICAL GUIDES</span><h2>Compare the full cost.</h2></div><p>A low headline price is not always the lowest total cost. Check the details before signing up.</p></div>
+    <div class="guide-grid">
+      <a class="guide-card" href="energy-bill-calculator.html"><span class="guide-icon">⌂</span><div><h3>Understanding an energy bill</h3><p>Unit rates, kWh, standing charges and how to estimate a year's cost.</p><span class="text-link">Read the energy guide ↗</span></div></a>
+      <a class="guide-card" href="broadband-contract-calculator.html"><span class="guide-icon">⌁</span><div><h3>Comparing broadband contracts</h3><p>Contract length, setup costs, bill credits and price-rise wording.</p><span class="text-link">Read the broadband guide ↗</span></div></a>
+      <a class="guide-card" href="mobile-contract-calculator.html"><span class="guide-icon">▣</span><div><h3>Checking a mobile deal</h3><p>Compare SIM-only and handset plans using the full contract cost.</p><span class="text-link">Read the mobile guide ↗</span></div></a>
+    </div>
+  </section>
+
+  <section class="how-section" id="how">
+    <span class="eyebrow">A CLEARER WAY TO COMPARE</span><h2>Three steps. Better-informed decisions.</h2>
+    <div class="steps">
+      <div><b>01</b><h3>Enter your figures</h3><p>Use the prices, usage and terms on your latest bill or quote.</p></div>
+      <div><b>02</b><h3>Check the estimate</h3><p>See the total cost across a year or the full length of a contract.</p></div>
+      <div><b>03</b><h3>Read the terms</h3><p>Confirm exclusions, eligibility, price rises and exit fees with the provider.</p></div>
+    </div>
+  </section>
+
+  <section class="partner-section">
+    <div><span class="eyebrow">COMPARISON PARTNERS</span><h2>Partner links are not live yet.</h2><p>SwitchWise is currently a free calculator and guide site. We will only add tracked partner links after approval, and any advertising will be clearly labelled. No fake offers, rankings or live quotes.</p></div>
+    <div class="partner-note"><span class="partner-dot"></span><div><strong>Building the partner area</strong><small>Applications and approved tracking links are still required. Our calculations are independent of any future commission.</small></div></div>
+  </section>
+
+  <section class="about-section" id="about">
+    <span class="eyebrow">ABOUT SWITCHWISE UK</span><h2>Useful tools, without the noise.</h2>
+    <p>SwitchWise UK is an independent educational toolkit. You enter your own figures and calculations run in your browser. We do not currently provide live tariff comparisons, supplier rankings or personal recommendations. Results are illustrative and may exclude taxes, discounts, usage changes, price rises, fees or other contract terms unless you enter them yourself. Always verify the full terms directly with the provider.</p>
+    <div class="faq-grid">
+      <div><h3>Are the calculators free?</h3><p>Yes. There is no account or payment required to use the tools.</p></div>
+      <div><h3>Are these live prices?</h3><p>No. The calculators use the figures you type in and do not fetch provider prices.</p></div>
+      <div><h3>Do you store my bills?</h3><p>The calculators run in your browser and do not send entered figures to a SwitchWise server.</p></div>
+    </div>
+  </section>
+</main>
+<footer>
+  <a class="brand" href="index.html"><span class="brand-mark">S</span><span>SwitchWise <small>UK</small></span></a>
+  <p>© <span id="year"></span> SwitchWise UK · <a href="privacy.html">Privacy</a> · <a href="disclosure.html">Affiliate disclosure</a></p>
+  <p class="fine">Calculations are estimates, not quotes or financial advice. Partner links are not currently active.</p>
+</footer>
+<script src="assets/app.js" defer></script>
+</body>
+</html>
