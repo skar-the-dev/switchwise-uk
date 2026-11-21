@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en-GB"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Estimate annual gas and electricity costs using your own kWh usage, unit rates and separate daily standing charges. Free UK energy bill calculator.">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://skar-the-dev.github.io/switchwise-uk/energy-bill-calculator.html">
+<meta property="og:type" content="article"><meta property="og:title" content="Free UK Energy Bill Calculator | SwitchWise UK"><meta property="og:description" content="Calculate an estimated annual gas and electricity bill from your own usage and tariff rates.">
+<title>Free UK Energy Bill Calculator — kWh & Standing Charges | SwitchWise UK</title>
+<link rel="stylesheet" href="assets/styles.css"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head><body>
+<header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">S</span><span>SwitchWise <small>UK</small></span></a><nav aria-label="Main navigation"><a href="index.html#calculators">Calculators</a><a href="index.html#guides">Guides</a><a href="index.html#about">About</a></nav></header>
+<main class="guide-page"><article class="guide-content">
+<a class="guide-toplink" href="index.html">← SwitchWise UK home</a><span class="eyebrow">FREE UK ENERGY TOOL</span>
+<h1>Estimate your annual energy bill.</h1>
+<p class="lead">Use the electricity and gas usage, unit rates and daily standing charges shown on your own bill. This calculator turns those figures into an illustrative yearly cost — it does not look up live tariffs.</p>
+<section class="guide-calculator" aria-labelledby="calc-title">
+<h2 id="calc-title">Annual energy cost calculator</h2>
+<form id="energy-page-form" class="calc-form">
+<label>Electricity use per year (kWh)<input id="e-kwh" type="number" min="0" step="1" inputmode="decimal" placeholder="e.g. 2700" required></label>
+<label>Electricity unit rate (p/kWh)<input id="e-rate" type="number" min="0" step="0.01" inputmode="decimal" placeholder="From your bill" required></label>
+<label>Electricity standing charge (£/day)<input id="e-standing" type="number" min="0" step="0.0001" inputmode="decimal" placeholder="From your bill" required></label>
+<label>Gas use per year (kWh)<input id="g-kwh" type="number" min="0" step="1" inputmode="decimal" placeholder="e.g. 11000" required></label>
+<label>Gas unit rate (p/kWh)<input id="g-rate" type="number" min="0" step="0.01" inputmode="decimal" placeholder="From your bill" required></label>
+<label>Gas standing charge (£/day)<input id="g-standing" type="number" min="0" step="0.0001" inputmode="decimal" placeholder="From your bill" required></label>
+<button class="button primary" type="submit">Calculate annual energy cost</button>
+</form>
+<div id="energy-page-result" class="guide-result" aria-live="polite">Your annual estimate will appear here.</div>
+</section>
+<h2>What figures do you need?</h2>
+<p><strong>Annual usage (kWh):</strong> use your latest annual statement or your supplier's estimate. If you only have a monthly figure, multiply it by 12 for a rough estimate, but seasonal energy use varies.</p>
+<p><strong>Unit rate:</strong> this is the price for each kilowatt-hour used. Electricity and gas have different rates, so enter them separately.</p>
+<p><strong>Standing charge:</strong> this is a daily fixed charge. Electricity and gas standing charges are separate on a dual-fuel bill, which is why this calculator asks for both.</p>
+<h2>How the estimate is calculated</h2>
+<p>For each fuel, the tool multiplies annual kWh by the unit rate (converted from pence to pounds), then adds 365 days of standing charges. The two fuel totals are added together. The result excludes any discounts, credits, taxes or adjustments not represented in the figures you enter.</p>
+<h2>Before switching supplier</h2>
+<ul><li>Compare the unit rates and standing charges, not only the estimated monthly direct debit.</li><li>Check whether your usage estimate matches your household's actual consumption.</li><li>Read the tariff length, exit-fee terms and any other conditions directly with the supplier.</li><li>Use an up-to-date bill and confirm all figures before making a decision.</li></ul>
+<div class="source-note">For impartial help understanding an energy bill or tariff, see <a href="https://www.citizensadvice.org.uk/consumer/energy/" target="_blank" rel="noopener noreferrer">Citizens Advice energy guidance</a>. This page is educational and is not a live comparison service.</div>
+<a class="button secondary" href="index.html#calculators">See all free calculators</a>
+</article></main>
+<footer><a class="brand" href="index.html"><span class="brand-mark">S</span><span>SwitchWise <small>UK</small></span></a><p><a href="privacy.html">Privacy</a> · <a href="disclosure.html">Affiliate disclosure</a></p><p class="fine">Estimates only. Always verify your tariff and usage figures with your supplier.</p></footer>
+<script>
+(() => {
+const form=document.getElementById("energy-page-form");
+const gbp=n=>new Intl.NumberFormat("en-GB",{style:"currency",currency:"GBP"}).format(n);
+form.addEventListener("submit",e=>{
+e.preventDefault();if(!form.reportValidity())return;
+const ids=["e-kwh","e-rate","e-standing","g-kwh","g-rate","g-standing"];
+const v=ids.map(id=>Number(document.getElementById(id).value));
+if(v.some(n=>!Number.isFinite(n)||n<0))return;
+const electricity=v[0]*v[1]/100+v[2]*365;
+const gas=v[3]*v[4]/100+v[5]*365;
+const out=document.getElementById("energy-page-result");
+out.replaceChildren();
+const strong=document.createElement("strong");strong.textContent=gbp(electricity+gas)+" estimated per year";
+const detail=document.createElement("span");detail.textContent="Electricity "+gbp(electricity)+" · Gas "+gbp(gas)+". Based on 365 days and the rates you entered.";
+out.append(strong,detail);
+});
+})();
+</script></body></html>
