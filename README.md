@@ -38,5 +38,10 @@ There are no active affiliate links or paid partner placements yet. Awin states 
 ## Revenue reality
 This is a free-to-start foundation, not guaranteed income. Search traffic takes time to build, partner programmes can reject applications, and earnings depend on qualified visitor actions. The site currently calculates using visitor-entered figures; it does not show live tariff or deal data.
 
+## Calculator validation
+- Homepage and standalone calculator scripts were syntax-checked.
+- Sample calculations were checked against expected totals, including the savings target timeline.
+- Invalid submissions now show inline instructions rather than leaving the result area blank.
+
 ## Local checks
 Check that every HTML page loads, all forms validate, result calculations match the formulas, and the XML sitemap URLs match the deployed Pages URL.
