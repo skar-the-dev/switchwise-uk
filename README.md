@@ -3,6 +3,8 @@
 A free static UK household-bills calculator and guide site. It uses no backend, paid API, login or database.
 
 ## Public contact
+Operated by Jake Mo, trading as SwitchWise UK.
+5 Somerley Close, Liverpool, L12 4BF
 switchwise.uk@mail.com
 
 ## Live URL
