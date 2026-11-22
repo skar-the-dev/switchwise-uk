@@ -2,6 +2,9 @@
 
 A free static UK household-bills calculator and guide site. It uses no backend, paid API, login or database.
 
+## Public contact
+switchwise.uk@mail.com
+
 ## Live URL
 https://skar-the-dev.github.io/switchwise-uk/
 
